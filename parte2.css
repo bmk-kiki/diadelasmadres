@@ -1,0 +1,122 @@
+:root {
+    --rose-color: #e63946;
+    --stem-color: #2d6a4f;
+    --bg-color: #fff5f5;
+    --text-color: #b5838d;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    overflow: hidden; 
+}
+
+
+#startBtn {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    background: var(--rose-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#startBtn:active {
+    transform: scale(0.95);
+}
+
+
+.rose-system {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: none; 
+    margin-bottom: 150px;
+}
+
+
+.petal {
+    width: 70px;
+    height: 70px;
+    background: var(--rose-color);
+    border-radius: 50% 50% 0 50%;
+    position: absolute;
+    transform-origin: bottom right; 
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 2px 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; 
+}
+
+
+.petal:active {
+    filter: brightness(1.2);
+    transform: scale(1.1) rotate(var(--rot)) !important;
+}
+
+
+.stem {
+    width: 10px;
+    height: 180px;
+    background: linear-gradient(to bottom, var(--stem-color), #1b4332);
+    border-radius: 5px;
+    position: absolute;
+    top: 65px;
+    left: 65px;
+    z-index: -1;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal img {
+    max-width: 85%;
+    max-height: 60%;
+    border: 8px solid white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+   
+    animation: zoomIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-text {
+    color: white;
+    font-size: 2.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
