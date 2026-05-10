@@ -120,3 +120,40 @@ body {
     from { transform: scale(0); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+
+.heart {
+    position: fixed;
+    top: -50px; 
+    font-size: 20px;
+    z-index: 999;
+    user-select: none;
+    pointer-events: none;
+    animation: rain linear infinite;
+}
+
+
+.h-blue { color: #3498db; }
+.h-purple { color: #9b59b6; }
+
+@keyframes rain {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg); 
+        opacity: 0;
+    }
+}
+
+
+.heart:nth-child(odd) {
+    animation-duration: 4s;
+}
+.heart:nth-child(even) {
+    animation-duration: 6s;
+}
